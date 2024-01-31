@@ -18,4 +18,4 @@ jobs:
           port: 15297
           username: nivekyang
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: echo "Hello, World!"
+          script: echo "Hello, World!" > output.txt
