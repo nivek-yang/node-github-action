@@ -19,6 +19,11 @@ jobs:
           username: nivekyang
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd node-github-action
-            git pull https://github.com/nivek-yang/node-github-action.git
+            if [ ! -d "node-github-action" ]; then
+              git clone https://github.com/nivek-yang/node-github-action.git
+              cd node-github-action
+            else
+              cd node-github-action
+              git pull
+            fi
             docker-compose up -d
