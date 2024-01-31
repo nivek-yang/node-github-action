@@ -18,4 +18,7 @@ jobs:
           port: 16761
           username: nivekyang
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: echo "Hello, World!" > output3.txt
+          script: |
+            git clone https://github.com/nivek-yang/node-github-action.git
+            cd node-github-action
+            docker-compose up -d
