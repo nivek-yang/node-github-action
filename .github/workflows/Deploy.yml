@@ -20,3 +20,16 @@ jobs:
       - name: Run Docker Compose
         run: |
           docker-compose up -d
+
+      - name: Install ngrok
+        run: |
+          curl -s https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > ngrok.zip
+          unzip ngrok.zip
+          chmod +x ./ngrok
+
+      - name: Expose service with ngrok
+        run: |
+          ./ngrok authtoken ${{ secrets.NGROK_AUTH_TOKEN }}
+          ./ngrok http 80 &
+          sleep 2
+          curl http://localhost:4040/api/tunnels
