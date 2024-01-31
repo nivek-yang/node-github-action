@@ -1,26 +1,26 @@
-name: SSH INTO VM
+# name: SSH INTO VM
 
-on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+# on:
+#   push:
+#     branches: [master]
+#   pull_request:
+#     branches: [master]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Run remote command
-        uses: appleboy/ssh-action@master
-        with:
-          host: 0.tcp.jp.ngrok.io
-          port: 15297
-          username: nivekyang
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            sudo apt-get update
-            sudo apt-get install -y docker.io docker-compose
-            git clone https://github.com/nivek-yang/node-github-action.git
-            cd node-github-action
-            docker-compose up -d
+#     steps:
+#       - name: Run remote command
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: 0.tcp.jp.ngrok.io
+#           port: 15297
+#           username: nivekyang
+#           key: ${{ secrets.SSH_PRIVATE_KEY }}
+#           script: |
+#             sudo apt-get update
+#             sudo apt-get install -y docker.io docker-compose
+#             git clone https://github.com/nivek-yang/node-github-action.git
+#             cd node-github-action
+#             docker-compose up -d
