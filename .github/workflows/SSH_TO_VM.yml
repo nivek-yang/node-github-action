@@ -14,8 +14,8 @@ jobs:
       - name: Run remote command
         uses: appleboy/ssh-action@master
         with:
-          host: 0.tcp.jp.ngrok.io
-          port: 11344
+          host: 192.168.1.100
+          port: 22
           username: nivekyang
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
@@ -27,3 +27,4 @@ jobs:
               git pull
             fi
             docker-compose up -d
+            ngrok tcp 22
