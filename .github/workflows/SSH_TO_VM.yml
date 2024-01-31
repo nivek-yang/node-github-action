@@ -27,4 +27,4 @@ jobs:
               git pull
             fi
             docker-compose up -d
-            ngrok tcp 22
+            ngrok http 80
