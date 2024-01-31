@@ -1,0 +1,21 @@
+name: SSH INTO VM
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run remote command
+        uses: appleboy/ssh-action@master
+        with:
+          host: 0.tcp.jp.ngrok.io
+          port: 15297
+          username: nivekyang
+          key: ${{ secrets.SSH_PUBLIC_KEY }}
+          script: echo "Hello, World!"
