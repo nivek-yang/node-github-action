@@ -15,3 +15,5 @@ README-secret.md
 .github/
 # package
 package-lock.json
+# ignore .env
+.env
