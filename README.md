@@ -38,7 +38,7 @@
 
 # 部署流程
 
-當專案被推送到 GitHub 時，會觸發 GitHub Actions。GitHub Actions 會使用 SSH 連接到 EC2，並在 EC2 上將專案進行 git clone 或 git pull。然後，它會使用 Docker Compose 來運行專案。
+當專案被推送到 GitHub 時，會觸發 GitHub Actions。GitHub Actions 會使用 SSH 連接到 EC2，並在 EC2 上將專案進行 git clone 或 git pull。然後使用 Docker Compose 來運行專案。
 
 ## 如何使用
 
